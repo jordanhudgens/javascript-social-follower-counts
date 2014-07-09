@@ -2,7 +2,7 @@
 	<head>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript">
-			var f_page = "edutechional"; // the page name for your fan page, e.g. the 'wvumountaineers' part of http://facebook.com/wvumountaineers
+			var f_page = "skinnywrapslubbock"; // the page name for your fan page, e.g. the 'wvumountaineers' part of http://facebook.com/wvumountaineers
 			var t_page = "jordanhudgens"; // the account name for your main twitter account
 		
 			function add_commas(number) {
@@ -31,46 +31,143 @@
 					fb_count = add_commas(fb_count);
 					$('#fb_count').html(fb_count);
 				});
-			
-				// grab from twitter
-				$.getJSON('http://api.twitter.com/1/users/show.json?screen_name='+t_page+'&callback=?', function(data) {
-					twit_count = data['followers_count'].toString();
-					twit_count = add_commas(twit_count);
-					$('#twitter_count').html(twit_count);
-				});
+
+				$( ".needHidden" ).hide();
+				var linksToTwitter = $('a[href="http://twittercounter.com/skinnywrapswork"]');
+
+				var updatedString = linksToTwitter.text();
+
+				$('#twitterWrite').html(add_commas(updatedString));
 			
 			});
 		</script>
+
+		<style type="text/css">
+			#twitterBox {
+				float: left;
+				margin: 5px;
+				width: 65px;
+				height: 80px;
+				background-color: rgb(0, 172, 237);
+				-webkit-border-top-left-radius: 7px;
+				-webkit-border-bottom-right-radius: 7px;
+				-moz-border-radius-topleft: 7px;
+				-moz-border-radius-bottomright: 7px;
+				border-top-left-radius: 7px;
+				border-bottom-right-radius: 7px;
+			}
+
+			#twitterBox img {
+				width: 35px;
+				padding-top: 7px;
+				padding-left: 15px;
+			}
+
+			#facebookBox {
+				float: left;
+				margin: 5px;
+				width: 65px;
+				height: 80px;
+				background-color: rgb(67, 82, 130);
+				-webkit-border-top-left-radius: 7px;
+				-webkit-border-bottom-right-radius: 7px;
+				-moz-border-radius-topleft: 7px;
+				-moz-border-radius-bottomright: 7px;
+				border-top-left-radius: 7px;
+				border-bottom-right-radius: 7px;
+			}
+
+			#facebookBox img {
+				width: 18.5px;
+				padding-top: 7px;
+				padding-left: 22px;
+			}
+
+			#googleBox {
+				float: left;
+				margin: 5px;
+				width: 65px;
+				height: 80px;
+				background-color: rgb(221, 75, 57);
+				-webkit-border-top-left-radius: 7px;
+				-webkit-border-bottom-right-radius: 7px;
+				-moz-border-radius-topleft: 7px;
+				-moz-border-radius-bottomright: 7px;
+				border-top-left-radius: 7px;
+				border-bottom-right-radius: 7px;
+			}
+
+			#googleBox img {
+				width: 30px;
+				padding-top: 7px;
+				padding-left: 19px;
+			}
+
+			.countTotals {
+				color: white;
+				font-size: 1em;
+				font-family: sans-serif;
+				text-align: center;
+			}
+
+			.countTotals p {
+				margin-top: 5px;
+				text-align: center;
+			}
+
+			.active_jquery_menu {
+				background-color: black;
+			}
+
+			.socialBlock a {
+				text-decoration: none;
+			}
+
+			.countText {
+				color: white;
+				font-family: sans-serif;
+				text-align: center;
+				font-size: 0.75em;
+				margin-top: -15px;
+			}
+
+
+		</style>
 	</head>
 	<body>
-		<noscript>The following counts are dynamically populated by JavaScript. You can also directly visit the sources to find the counts at http://facebook.com/[pagename] and http://twitter.com/[accountname]</noscript>
- 
-		Facebook fan count: <span id="fb_count"></span><br />
-		Twitter follower count: <span id="twitter_count"></span><br />
-		<br />
-		<em>You could put these spans in nice little badges or something...</em>
 
-		<!-- Start of Twitter Counter Code -->
-<script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username=jordanhudgens"></script><noscript><a href="http://twittercounter.com/TheCounter">TheCounter on Twitter Counter</a></noscript>
-<!-- End of Twitter Counter Code -->
+		<div class="socialBlock">
+			<a href="https://twitter.com/skinnywrapswork" target="_blank">
+				<div id="twitterBox">
+					<img src="twitter.png">
+					<span class="countTotals"><p><span id="twitterWrite" ></span></p></span>
+					<p class="countText">Fans</p>
+				</div>
+			</a>
+		</div>
 
-	<span class='googlefollowercount'></span>
+		<span class="needHidden"><script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username=skinnywrapswork"></script></span>
 
-	<script type="text/javascript">
-		var profileid = '5857474588613598674';
-		var apikey = 'AIzaSyC17-DltC3aCgSkYd5-gbzJXqGpONqGqIk';
-		var url = 'https://www.googleapis.com/plus/v1/people/' + profileid + '?key=' + apikey;
-		$.ajax({
-		    type: "GET",
-		    dataType: "json",
-		    url: url,
-		    success: function (data) {
-		        var googlefollowcount = data.circledByCount;
-		        console.log(googlefollowcount);
-		        $(".googlefollowercount").html(googlefollowcount);
-		    }
-		});
-	</script>
+		<div class="socialBlock">
+			<a href="https://www.facebook.com/skinnywrapslubbock" target="_blank">
+				<div id="facebookBox">
+					<img src="fb.png">
+					<span class="countTotals"><p><span id="fb_count"></span></p></span>
+					<p class="countText">Followers</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="socialBlock">
+			<a href="https://plus.google.com/+Tryskinnywraps" target="_blank">
+				<div id="googleBox">
+					<img src="gplus.png">
+					<span class="countTotals"><p>69</p></span>
+					<p class="countText">Followers</p>
+				</div>
+			</a>
+		</div>
+
 
 
 	</body>
